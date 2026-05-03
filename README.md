@@ -116,7 +116,7 @@ Fluxo completo:
 
 ## 📸 Evidências Explicadas
 
-### `01_s3_bucket_objects`
+### ![Bucket S3](01_s3_bucket_objects.png)
 
 Valida que os arquivos gerados pela IA foram armazenados com sucesso no S3.
 
