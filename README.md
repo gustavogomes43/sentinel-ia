@@ -65,6 +65,26 @@ O MVP foi concluído com sucesso, validando a capacidade de orquestração entre
     *   `fase2/`: Diagrama de arquitetura e prova de conceito (POC) da IA.
 
 ## 🚀 Fase 2: Integração de IA Generativa
+
+graph LR
+    %% Elementos
+    S3[("Amazon S3<br/>(Bucket de Imagens)")]
+    Lambda{{"AWS Lambda<br/>(Sentinel Processor)"}}
+    Bedrock[["Amazon Bedrock<br/>(Claude 3 Haiku)"]]
+    CW[("CloudWatch<br/>(Logs de Alerta)")]
+
+    %% Fluxo de Dados
+    S3 -->|1. Evento de Upload| Lambda
+    Lambda -->|2. Imagem em Base64| Bedrock
+    Bedrock -->|3. Análise IA: ALERTA| Lambda
+    Lambda -->|4. Registro da Ocorrência| CW
+
+    %% Estilização (Opcional para o Mermaid)
+    style S3 fill:#2E7D32,stroke:#fff,color:#fff
+    style Lambda fill:#E65100,stroke:#fff,color:#fff
+    style Bedrock fill:#1A237E,stroke:#fff,color:#fff
+    style CW fill:#546E7A,stroke:#fff,color:#fff
+
 Nesta etapa, o sistema passou a analisar imagens em tempo real.
 *   **Trigger**: Upload no S3.
 *   **Processamento**: AWS Lambda em Python.
