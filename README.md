@@ -382,7 +382,63 @@ A Fase 2 transforma o Sentinel IA em um **assistente inteligente de vigilância*
 
 ## 📌 Conclusão Fase 2
 
-O sistema agora **entende o que está acontecendo nas imagens** e apoia decisões humanas.
+Aqui está a **Conclusão da Fase 2** seguindo exatamente o mesmo nível, estrutura e linguagem — mas adaptada ao contexto de visão computacional e valor de negócio do Sentinel IA:
+
+---
+
+📑 **Conclusão Final do Projeto: Sentinel IA (Fase 2)**
+
+O projeto **Sentinel IA** avançou com sucesso para a sua camada de **inteligência analítica**, evoluindo de um sistema automatizado para um **assistente inteligente de segurança baseado em IA generativa**.
+
+A Fase 2 valida, na prática, que é possível transformar dados visuais em **insights acionáveis em tempo real**, apoiando decisões humanas e aumentando a eficiência operacional em ambientes de monitoramento.
+
+---
+
+### 1. Resultados Alcançados
+
+* **Análise Inteligente em Tempo Real:** Implementação de visão computacional com IA generativa via Amazon Bedrock, permitindo classificar imagens como **ALERTA ou NORMAL** em poucos segundos (~3.8s).
+
+* **Arquitetura Event-Driven:** Integração entre Amazon S3, Amazon EventBridge e AWS Lambda, garantindo processamento automático, escalável e sem intervenção manual.
+
+* **Eficiência Operacional:** Redução significativa da sobrecarga de monitoramento humano, permitindo que operadores foquem apenas em eventos relevantes, ao invés de vigilância contínua passiva.
+
+* **Observabilidade e Auditoria:** Registro completo das execuções no Amazon CloudWatch, garantindo rastreabilidade e controle das análises realizadas.
+
+---
+
+### 2. Lições Aprendidas
+
+Durante o desenvolvimento desta fase, foram superados desafios importantes relacionados a:
+
+* Processamento e conversão de imagens (Base64) para integração com IA
+* Engenharia de prompt (Prompt Engineering) para obter respostas objetivas e acionáveis
+* Ajuste de performance e timeout em funções serverless
+* Orquestração eficiente de eventos em arquiteturas desacopladas
+
+A principal evolução foi compreender que o valor não está apenas na tecnologia, mas na **capacidade de traduzir dados em decisões rápidas e úteis para o negócio**.
+
+---
+
+### 3. Visão de Futuro
+
+Com o “cérebro” do sistema validado, o Sentinel IA está pronto para evoluir para a **Fase 3 — Resposta a Incidentes**, onde a análise deixará de ser apenas informativa e passará a ser **acionável em tempo real**.
+
+Os próximos passos incluem:
+
+* Integração com notificações via Amazon SNS
+* Envio de alertas direcionados para operadores e equipes de segurança
+* Possibilidade de escalonamento para autoridades em casos críticos
+* Fechamento do ciclo completo: **Detecção → Análise → Ação**
+
+---
+
+👉 **Resumo Estratégico:**
+A Fase 2 consolida o Sentinel IA como um sistema capaz de **entender cenários visuais e apoiar decisões humanas com velocidade, precisão e escalabilidade**, reduzindo custos operacionais e aumentando a eficiência das equipes de segurança.
+
+---
+
+**Status do Projeto:** 🟢 Fase 2 Concluída e Validada
+**Ambiente:** AWS Cloud (S3, Lambda, Bedrock, EventBridge, CloudWatch)
 
 ---
 
