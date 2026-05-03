@@ -55,4 +55,20 @@ A lógica principal realiza:
 O MVP foi concluído com sucesso, validando a capacidade de orquestração entre IA e serviços de infraestrutura AWS. O sistema está pronto para a Fase 2: Implementação de análise de segurança estática (SAST) nos arquivos gerados.
 
 ---
+
+# Sentinel IA - Sistema de Vigilância Inteligente
+
+## 📂 Estrutura do Repositório
+*   **/lambda**: Código fonte da função AWS Lambda com integração Claude 3 Haiku.
+*   **/docs**: Documentação visual e evidências de testes.
+    *   `fase1/`: Logs e prints da infraestrutura inicial.
+    *   `fase2/`: Diagrama de arquitetura e prova de conceito (POC) da IA.
+
+## 🚀 Fase 2: Integração de IA Generativa
+Nesta etapa, o sistema passou a analisar imagens em tempo real.
+*   **Trigger**: Upload no S3.
+*   **Processamento**: AWS Lambda em Python.
+*   **IA**: Anthropic Claude 3 Haiku via Amazon Bedrock.
+*   **Resultado**: [Link para o print do Alerta](./docs/fase2/print_cloudwatch.png)
+
 **Desenvolvido por Gustavo - Maio de 2026**
