@@ -118,6 +118,42 @@ Fluxo completo:
 
 ---
 
+**💡 Explicação do Fluxo (Fase 1 — Sentinel IA**
+
+Este diagrama representa o núcleo do Sentinel IA na sua Fase 1, onde o sistema atua como um **orquestrador inteligente de infraestrutura**, transformando linguagem natural em código pronto para uso.
+
+O fluxo inicia com um evento JSON contendo a solicitação do usuário (ex: criação de recursos cloud). A função **AWS Lambda** recebe esse input e atua como o cérebro operacional da arquitetura, sendo responsável por orquestrar todo o processo.
+
+Em seguida, a Lambda realiza a chamada ao **Amazon Bedrock**, utilizando o modelo Claude 4.5 Haiku para interpretar o prompt e gerar automaticamente código Terraform (IaC), seguindo boas práticas de infraestrutura.
+
+O artefato gerado é então armazenado no **Amazon S3**, com versionamento habilitado, garantindo controle de versões, rastreabilidade e governança dos arquivos produzidos.
+
+Toda a comunicação entre os serviços é protegida por políticas do **AWS Identity and Access Management**, aplicando o princípio de menor privilégio para garantir segurança na execução.
+
+---
+
+👉 **Visão Técnica:**
+A arquitetura utiliza um modelo **serverless e orientado a eventos**, eliminando a necessidade de provisionamento manual e permitindo execução sob demanda, com alta escalabilidade e baixo acoplamento.
+
+---
+
+👉 **Valor de Negócio:**
+O Sentinel IA, nesta fase, resolve um problema crítico das empresas:
+
+* Reduz o tempo de criação de infraestrutura
+* Diminui erros operacionais
+* Padroniza ambientes
+* Aumenta produtividade de equipes técnicas
+
+Em vez de engenheiros gastarem tempo escrevendo código repetitivo, o sistema permite que foquem em decisões estratégicas.
+
+---
+
+👉 **Resumo Estratégico:**
+A Fase 1 valida que é possível utilizar IA generativa como um **acelerador de engenharia**, transformando intenção em entrega real de infraestrutura de forma rápida, segura e escalável.
+
+---
+
 ## 📸 Evidências Explicadas
 
 ![Bucket_S3](docs/fase1/01_s3_bucket_objects.png)
