@@ -70,7 +70,7 @@ graph LR
     %% Elementos
     S3[("Amazon S3<br/>(Bucket de Imagens)")]
     Lambda{{"AWS Lambda<br/>(Sentinel Processor)"}}
-    Bedrock[["Amazon Bedrock<br/>(Claude 3 Haiku)"]]
+    Bedrock[["Amazon Bedrock<br/>(Claude 3 Haiku)")]
     CW[("CloudWatch<br/>(Logs de Alerta)")]
 
     %% Fluxo de Dados
@@ -79,7 +79,7 @@ graph LR
     Bedrock -->|3. Análise IA: ALERTA| Lambda
     Lambda -->|4. Registro da Ocorrência| CW
 
-    %% Estilização (Opcional para o Mermaid)
+    %% Estilização
     style S3 fill:#2E7D32,stroke:#fff,color:#fff
     style Lambda fill:#E65100,stroke:#fff,color:#fff
     style Bedrock fill:#1A237E,stroke:#fff,color:#fff
