@@ -256,9 +256,66 @@ Automação de infraestrutura validada com sucesso.
 
 ![Arquitetura_Sentinel](docs/fase2/arquitetura_sentinel_fase2.png)
 
+Aqui está o comentário técnico + visão de negócio adaptado para a **Fase 2 do Sentinel IA**:
+
+---
+
+**💡 Explicação do Fluxo (Fase 2 — Sentinel IA | Visão Computacional com IA Generativa)**
+
 🏗️ Diagrama completo da arquitetura da Fase 2.
 
 👉 Apresenta o fluxo end-to-end do sistema, desde o upload da imagem até a análise via IA e registro dos logs.
+
+Este diagrama representa a evolução do Sentinel IA para um sistema capaz de **interpretar imagens e apoiar decisões de segurança em tempo real**, mantendo o humano no centro da operação.
+
+O fluxo inicia com o upload de uma imagem no **Amazon S3**, que atua como ponto de entrada dos dados. Esse evento é automaticamente capturado pelo **Amazon EventBridge**, responsável por disparar a execução de forma desacoplada e orientada a eventos.
+
+A função **AWS Lambda** entra como o componente central de processamento, realizando:
+
+* Captura dos metadados do evento
+* Conversão da imagem para Base64
+* Construção de um prompt especializado em análise de segurança
+
+Em seguida, a Lambda invoca o **Amazon Bedrock**, utilizando o modelo Claude 3 Haiku para executar uma **análise semântica da imagem**, classificando o cenário como **ALERTA ou NORMAL**.
+
+O resultado é então registrado no **Amazon CloudWatch**, garantindo rastreabilidade, auditoria e observabilidade do sistema.
+
+---
+
+👉 **Visão Técnica:**
+A arquitetura segue um modelo **serverless e event-driven**, com processamento assíncrono e altamente escalável, capaz de reagir automaticamente a novos eventos sem necessidade de intervenção manual.
+
+---
+
+👉 **Papel da IA no Sistema:**
+A IA não substitui o profissional de segurança.
+
+Ela atua como um **filtro inteligente**, que:
+
+* Destaca eventos relevantes
+* Reduz ruído operacional
+* Direciona a atenção humana para o que realmente importa
+
+---
+
+👉 **Valor de Negócio:**
+Essa abordagem resolve um dos maiores gargalos das operações de monitoramento:
+
+* Reduz a sobrecarga dos operadores
+* Diminui falhas humanas
+* Acelera o tempo de resposta a incidentes
+* Permite escalar a operação sem aumentar proporcionalmente o custo
+
+Na prática, o sistema permite que:
+
+* Alertas cheguem diretamente ao operador responsável
+* A equipe de segurança seja acionada com base no local do evento
+* Ocorrências possam ser rapidamente escaladas para autoridades, quando necessário
+
+---
+
+👉 **Resumo Estratégico:**
+A Fase 2 transforma o Sentinel IA em um **assistente inteligente de vigilância**, capaz de analisar cenários visuais em segundos e **apoiar decisões humanas com mais velocidade, precisão e eficiência operacional**.
 
 ---
 
