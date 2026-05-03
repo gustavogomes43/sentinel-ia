@@ -118,47 +118,58 @@ Fluxo completo:
 
 ![Bucket_S3](docs/fase1/01_s3_bucket_objects.png)
 
-Valida que os arquivos gerados pela IA foram armazenados com sucesso no S3.
+🗂️ Mostra os objetos armazenados no bucket S3 após a execução da Lambda.
+👉 Aqui validamos que o sistema conseguiu persistir arquivos gerados automaticamente pela IA, comprovando o fluxo completo de geração → armazenamento.
 
-### `02_lambda_overview`
+![Lambda](docs/fase1/02_lambda_overview.png)
 
-Mostra a configuração da função Lambda e seu estado operacional.
+⚙️ Visão geral da função Lambda no console AWS.
+👉 Demonstra a configuração principal da função, incluindo runtime, permissões e status — evidenciando que o serviço está operacional.
 
-### `03_lambda_test_success`
+![Lambda_test](docs/fase1/03_lambda_test_success.png)
 
-Confirma que a função executa corretamente sem erros.
+✅ Resultado de um teste manual executado na Lambda.
+👉 Confirma que a função está funcionando corretamente e retornando resposta sem erros.
 
-### `04_lambda_cloudwatch_logs`
+![Lambda_Cloudwatch](docs/fase1/04_lambda_cloudwatch_logs.png)
 
-Exibe logs detalhados da execução — essencial para auditoria.
+📊 Logs gerados pela execução da Lambda no CloudWatch.
+👉 Aqui é possível ver o comportamento interno da função, incluindo chamadas para IA e execução do código, essencial para debugging e observabilidade.
 
-### `05_lambda_python_source`
+![lambda_python](docs/fase1/05_lambda_python_source.png)
 
-Código responsável pela integração com IA e geração de arquivos.
+🧠 Código-fonte da função Lambda em Python.
+👉 Mostra a lógica implementada: integração com Bedrock, manipulação de dados e envio para o S3.
 
-### `06_iam_role_permissions`
+![iam_role](docs/fase1/06_iam_role_permissions.png)
 
-Demonstra segurança com princípio de menor privilégio.
+🔐 Permissões IAM associadas à Lambda.
+👉 Demonstra aplicação do princípio de menor privilégio, garantindo segurança no acesso aos serviços AWS.
 
-### `07_bedrock_playground`
+![bedrock_playground](docs/fase1/07_bedrock_playground.png)
 
-Teste direto do modelo de IA antes da integração.
+🤖 Teste do modelo Claude no ambiente do Bedrock.
+👉 Valida que o modelo de IA está acessível e respondendo corretamente antes da integração com a Lambda.
 
-### `08_lambda_test_event`
+![lambda_test](docs/fase1/08_lambda_test_event.png)
 
-Simulação de entrada real para testes.
+📥 Evento JSON usado para testar a Lambda.
+👉 Simula a entrada de dados que a função receberá em produção.
 
-### `09_lambda_execution_result`
+![lambda_execution](docs/fase1/09_lambda_execution_result.png)
 
-Resultado da execução da Lambda.
+📤 Resultado retornado pela execução da Lambda.
+👉 Confirma que o sistema conseguiu processar a entrada e gerar saída estruturada corretamente.
 
-### `10_terraform_final_code`
+![terraform](docs/fase1/10_terraform_final_code.png)
 
-Infraestrutura gerada automaticamente pela IA.
+🧾 Código Terraform gerado automaticamente pela IA.
+👉 Este é o principal resultado da Fase 1: Infraestrutura como Código criada via IA, pronta para deploy..
 
-### `11_s3_bucket_versioning`
+[bucket_versioning](docs/fase1/11_s3_bucket_versioning.png)
 
-Controle de versões garantindo governança.
+🗃️ Configuração de versionamento no S3.
+👉 Garante governança e rastreabilidade dos arquivos gerados — essencial para ambientes corporativos.
 
 ---
 
@@ -172,21 +183,35 @@ Automação de infraestrutura validada com sucesso.
 
 ## 📸 Evidências Explicadas
 
-### `arquitetura_sentinel_fase2`
+![Arquitetura_Sentinel](docs/fase2/arquitetura_sentinel_fase2.png)
 
-Mostra o fluxo completo do sistema baseado em eventos.
+🏗️ Diagrama completo da arquitetura da Fase 2.
+👉 Apresenta o fluxo end-to-end do sistema, desde o upload da imagem até a análise via IA e registro dos logs.
 
-### `cloudwatch`
+![Cloudwatch](docs/fase2/cloudwatch.png)
 
-Registros das análises realizadas pela IA (ALERTA/NORMAL).
+📊 Logs da execução da análise de imagem.
+👉 Mostra o resultado real da IA classificando eventos como ALERTA ou NORMAL, comprovando a inteligência do sistema.
 
-### `diagrama_lambda`
+![Lambda_Diagrama](docs/fase2/diagrama_lambda.png)
 
-Fluxo interno detalhado da Lambda.
+🔄 Fluxo interno detalhado da função Lambda.
+👉 Explica o pipeline técnico:
 
-### `lambda.py`
+- Captura do evento S3
+- Conversão da imagem
+- Criação do prompt
+- Chamada ao Bedrock
+- Tratamento da resposta
 
-Código completo da análise de imagens.
+![Lambda](docs/fase2/lambda.py.png)
+
+🧠 Código da Lambda responsável pela análise das imagens.
+👉 Mostra a implementação prática da integração com IA generativa, incluindo:
+
+- Processamento Base64
+- Prompt Engineering
+- Interpretação da resposta
 
 ---
 
