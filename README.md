@@ -1,9 +1,8 @@
 # 🛡️ Sentinel IA - Fase 1: Arquiteto Cloud Autônomo
 
-![Arquitetura Sentinel IA - Fase 1](screenshots/arquitetura.png)
 
 ## 🏗 Arquitetura do Sistema
-![Arquitetura](./assets/architecture.png)
+![Arquitetura](arquitetura.png)
 
 O projeto utiliza uma arquitetura Event-Driven:
 1. Imagem é enviada ao **S3**.
