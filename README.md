@@ -84,6 +84,7 @@ graph LR
     style Lambda fill:#E65100,stroke:#fff,color:#fff
     style Bedrock fill:#1A237E,stroke:#fff,color:#fff
     style CW fill:#546E7A,stroke:#fff,color:#fff
+    ``` mermaid
 Nesta etapa, o sistema passou a analisar imagens em tempo real.
 *   **Trigger**: Upload no S3.
 *   **Processamento**: AWS Lambda em Python.
