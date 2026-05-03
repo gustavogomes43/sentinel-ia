@@ -75,8 +75,6 @@ Ele extrai imagens do vídeo em intervalos estratégicos.
 
 # 🏗️ Arquitetura Geral
 
-![Diagrama](docs/fase1/arquitetura.png)
-
 Fluxo completo:
 
 1. 🎥 Vídeo capturado
@@ -115,6 +113,10 @@ Fluxo completo:
 ---
 
 # 🚀 FASE 1 — Automação com IA
+
+![Diagrama](docs/fase1/arquitetura.png)
+
+---
 
 ## 📸 Evidências Explicadas
 
