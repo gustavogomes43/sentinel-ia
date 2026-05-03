@@ -1,95 +1,283 @@
-# 🛡️ Sentinel IA - Fase 1: Arquiteto Cloud Autônomo
+# 🛡️ Sentinel IA — Vigilância Inteligente com IA Generativa (AIOps)
 
+## ⚡ Introdução (Impacto imediato)
 
-## 🏗 Arquitetura do Sistema
-![Arquitetura](arquitetura.png)
+E se o seu sistema de segurança **não substituísse pessoas**, mas **direcionasse a atenção delas para o que realmente importa, no momento certo**?
 
-O projeto utiliza uma arquitetura Event-Driven:
-1. Imagem é enviada ao **S3**.
-2. **Lambda** é disparada automaticamente.
-3. **Amazon Bedrock** analisa a imagem em busca de ameaças.
-4. Resultados são armazenados e notificados.
+O **Sentinel IA** foi projetado com um objetivo claro:
 
-O **Sentinel IA** é um motor de automação AIOps que utiliza Inteligência Artificial Generativa para transformar intenções em Infraestrutura como Código (IaC) persistida e segura.
+👉 **IA como suporte à decisão humana — não substituição.**
 
-## 🚀 Visão Geral
-Este projeto demonstra a integração de ponta a ponta entre **AWS Lambda**, **Amazon Bedrock (Claude 4.5 Haiku)** e **Amazon S3**. O sistema atua como um Engenheiro DevOps Sênior, recebendo instruções em linguagem natural e entregando arquivos `.tf` (Terraform) prontos para deploy.
-
-## 🛠️ Arquitetura e Tecnologias
-*   **Linguagem:** Python 3.x (Boto3 SDK)
-*   **IA:** Claude 4.5 Haiku via Amazon Bedrock
-*   **Storage:** Amazon S3 (com versionamento e proteção de dados)
-*   **Segurança:** IAM Policies baseadas no princípio de privilégio mínimo.
-
-## 📋 Passo a Passo de Implementação (PAP)
-
-### 1. Provisionamento do Modelo
-*   Acesso ao Amazon Bedrock habilitado para a região `us-east-1`.
-*   Subscrição ativa do modelo Anthropic Claude 4.5 Haiku.
-
-### 2. Configuração de Segurança (IAM)
-Foram criadas políticas customizadas para garantir que a Lambda possua acesso estrito apenas ao necessário:
-*   `PermissaoInvokeBedrock`: Permite a chamada de inferência ao modelo específico.
-*   `PermissaoEscritaS3`: Permite o upload de objetos no bucket de destino.
-
-### 3. Desenvolvimento da Lambda
-A lógica principal realiza:
-1.  Recebimento do prompt via JSON.
-2.  Invocação do Bedrock com System Prompt especializado.
-3.  Geração de UUID para unicidade de arquivos.
-4.  Persistência do artefato no S3 com metadados de `text/plain`.
-
-## 📸 Evidências de Sucesso
-
-### Execução bem-sucedida
-![Resultado da Lambda](screenshots/2026-05-02_21-32.png)
-
-### Persistência no S3
-![Arquivos no S3](screenshots/2026-05-02_21-31.png)
-
-### Governança e Versionamento
-![Versionamento](screenshots/2026-05-02_21-42.png)
-
-## ⚖️ Conclusão da Fase 1
-O MVP foi concluído com sucesso, validando a capacidade de orquestração entre IA e serviços de infraestrutura AWS. O sistema está pronto para a Fase 2: Implementação de análise de segurança estática (SAST) nos arquivos gerados.
+Enquanto operadores se perdem monitorando dezenas de câmeras, o Sentinel IA atua como um **assistente inteligente**, analisando automaticamente imagens e enviando alertas **diretos, rápidos e acionáveis**.
 
 ---
 
-# Sentinel IA - Sistema de Vigilância Inteligente
+# 🎯 Problema de Negócio
 
-## 📂 Estrutura do Repositório
-*   **/lambda**: Código fonte da função AWS Lambda com integração Claude 3 Haiku.
-*   **/docs**: Documentação visual e evidências de testes.
-    *   `fase1/`: Logs e prints da infraestrutura inicial.
-    *   `fase2/`: Diagrama de arquitetura e prova de conceito (POC) da IA.
+Empresas enfrentam desafios reais em monitoramento:
 
-## 🚀 Fase 2: Integração de IA Generativa
+* 👁️ Sobrecarga de operadores
+* ⚠️ Incidentes ignorados ou percebidos tarde
+* 🕒 Tempo de resposta elevado
+* 💰 Alto custo operacional
+* 📉 Baixa eficiência na triagem
 
-```mermaid
-graph LR
-    %% Elementos
-    S3[("Amazon S3<br/>(Bucket de Imagens)")]
-    Lambda{{"AWS Lambda<br/>(Sentinel Processor)"}}
-    Bedrock[["Amazon Bedrock<br/>(Claude 3 Haiku)"]]
-    CW[("CloudWatch<br/>(Logs de Alerta)")]
+---
 
-    %% Fluxo de Dados
-    S3 -->|1. Evento de Upload| Lambda
-    Lambda -->|2. Imagem em Base64| Bedrock
-    Bedrock -->|3. Análise IA: ALERTA| Lambda
-    Lambda -->|4. Registro da Ocorrência| CW
+# 💡 Solução Proposta
 
-    %% Estilização
-    style S3 fill:#2E7D32,stroke:#fff,color:#fff
-    style Lambda fill:#E65100,stroke:#fff,color:#fff
-    style Bedrock fill:#1A237E,stroke:#fff,color:#fff
-    style CW fill:#546E7A,stroke:#fff,color:#fff
-```
+O **Sentinel IA** automatiza a análise visual e direciona alertas para quem realmente precisa agir.
 
-Nesta etapa, o sistema passou a analisar imagens em tempo real.
-*   **Trigger**: Upload no S3.
-*   **Processamento**: AWS Lambda em Python.
-*   **IA**: Anthropic Claude 3 Haiku via Amazon Bedrock.
-*   **Resultado**: [Link para o print do Alerta](./docs/fase2/print_cloudwatch.png)
+## 🧠 Papel da IA no Projeto
 
-**Desenvolvido por Gustavo - Maio de 2026**
+O sistema foi desenhado para **trabalhar junto com humanos**:
+
+* 🔔 Alerta o operador responsável
+* 📍 Indica o setor/local da ocorrência
+* 🚶‍♂️ Direciona a equipe mais próxima
+* 🚔 Pode escalar para autoridades
+
+👉 O humano continua no controle — agora com vantagem estratégica
+
+---
+
+# 🎥 Captura de Imagens (Arquitetura Real)
+
+## 🔍 Estratégia adotada: **Snapshot de Vídeo (Frames)**
+
+O sistema **não analisa vídeo diretamente**.
+Ele extrai imagens do vídeo em intervalos estratégicos.
+
+## ⚙️ Como funciona
+
+1. Câmeras transmitem vídeo (RTSP/RTMP)
+2. Um serviço extrai frames (ex: a cada 2 segundos)
+3. Frames são enviados para o S3
+4. Pipeline do Sentinel IA realiza a análise
+
+## 🧩 Tecnologias envolvidas
+
+* FFmpeg — captura de frames
+* Amazon Kinesis Video Streams — ingestão de vídeo
+* Amazon S3 — armazenamento
+* AWS Lambda — processamento
+
+## 🎯 Por que essa abordagem?
+
+* 💰 Redução de custo (sem processar vídeo inteiro)
+* ⚡ Baixa latência
+* 📈 Alta escalabilidade
+* 🔧 Simplicidade de integração
+
+👉 **Melhor custo-benefício para sistemas reais**
+
+---
+
+# 🏗️ Arquitetura Geral
+
+Fluxo completo:
+
+1. 🎥 Vídeo capturado
+2. 🖼️ Frame extraído
+3. 📥 Upload no S3
+4. ⚡ Lambda acionada
+5. 🧠 IA analisa imagem
+6. 📊 Resultado registrado
+7. 🔔 (Fase 3) Alerta enviado
+
+---
+
+# 🧠 Tecnologias Utilizadas
+
+| Tecnologia       | Função                   |
+| ---------------- | ------------------------ |
+| AWS Lambda       | Processamento serverless |
+| Amazon S3        | Armazenamento            |
+| Amazon Bedrock   | IA generativa            |
+| Claude 3/4 Haiku | Análise multimodal       |
+| CloudWatch       | Logs                     |
+| IAM              | Segurança                |
+| Python (Boto3)   | Integração               |
+
+---
+
+# 💰 Custos e Viabilidade
+
+* Modelo sob demanda
+* Sem infraestrutura fixa
+* Baixo custo inicial
+* Escalável
+
+👉 Ideal para MVP e produção
+
+---
+
+# 🚀 FASE 1 — Automação com IA
+
+## 📸 Evidências Explicadas
+
+### `01_s3_bucket_objects`
+
+Valida que os arquivos gerados pela IA foram armazenados com sucesso no S3.
+
+### `02_lambda_overview`
+
+Mostra a configuração da função Lambda e seu estado operacional.
+
+### `03_lambda_test_success`
+
+Confirma que a função executa corretamente sem erros.
+
+### `04_lambda_cloudwatch_logs`
+
+Exibe logs detalhados da execução — essencial para auditoria.
+
+### `05_lambda_python_source`
+
+Código responsável pela integração com IA e geração de arquivos.
+
+### `06_iam_role_permissions`
+
+Demonstra segurança com princípio de menor privilégio.
+
+### `07_bedrock_playground`
+
+Teste direto do modelo de IA antes da integração.
+
+### `08_lambda_test_event`
+
+Simulação de entrada real para testes.
+
+### `09_lambda_execution_result`
+
+Resultado da execução da Lambda.
+
+### `10_terraform_final_code`
+
+Infraestrutura gerada automaticamente pela IA.
+
+### `11_s3_bucket_versioning`
+
+Controle de versões garantindo governança.
+
+---
+
+## 📌 Conclusão Fase 1
+
+Automação de infraestrutura validada com sucesso.
+
+---
+
+# 👁️ FASE 2 — Análise Inteligente
+
+## 📸 Evidências Explicadas
+
+### `arquitetura_sentinel_fase2`
+
+Mostra o fluxo completo do sistema baseado em eventos.
+
+### `cloudwatch`
+
+Registros das análises realizadas pela IA (ALERTA/NORMAL).
+
+### `diagrama_lambda`
+
+Fluxo interno detalhado da Lambda.
+
+### `lambda.py`
+
+Código completo da análise de imagens.
+
+---
+
+## 📈 Resultados
+
+* ⏱️ ~3.8s por análise
+* 🎯 Alta precisão
+* ⚡ Tempo real
+
+---
+
+## 📌 Conclusão Fase 2
+
+O sistema agora **entende o que está acontecendo nas imagens** e apoia decisões humanas.
+
+---
+
+# 🚧 FASE 3 — Resposta a Incidentes
+
+## 🎯 Objetivo
+
+Transformar análise em ação.
+
+## 🔔 Fluxo de alerta
+
+* IA detecta evento
+* Sistema identifica local
+* Alerta enviado para:
+
+  * Operador
+  * Equipe mais próxima
+  * Autoridades
+
+---
+
+# 📊 Benefícios para Empresas
+
+* ↓ Sobrecarga operacional
+* ↑ Eficiência
+* ↑ Segurança
+* ↓ Tempo de resposta
+
+---
+
+# ⚠️ Desafios Enfrentados
+
+* Processamento de imagem
+* Integração com IA
+* IAM
+* Arquitetura escalável
+
+---
+
+# 🔮 Melhorias Futuras
+
+* Dashboard em tempo real
+* Banco de eventos
+* Integração com câmeras ao vivo
+* Edge computing
+
+---
+
+# 🧾 Conclusão Final
+
+O Sentinel IA não substitui pessoas.
+
+👉 Ele **potencializa decisões humanas com velocidade e precisão.**
+
+Transforma vigilância em inteligência.
+
+---
+
+# 👨‍💻 Autor
+
+**Gustavo Gomes**
+
+---
+
+# 🚀 Mensagem Final
+
+Você construiu um sistema que:
+
+👉 Observa
+👉 Analisa
+👉 Alerta
+
+E principalmente…
+
+👉 **Ajuda pessoas a agir no momento certo**
+
+---
+
+**Status:** 🟢 Fase 2 concluída | 🚧 Fase 3 em andamento
+**Ambiente:** AWS Cloud + IA Generativa
