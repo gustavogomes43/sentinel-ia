@@ -196,7 +196,7 @@ Fluxo completo:
 
 ---
 
-[bucket_versioning](docs/fase1/11_s3_bucket_versioning.png)
+![bucket_versioning](docs/fase1/11_s3_bucket_versioning.png)
 
 🗃️ Configuração de versionamento no S3.
 
