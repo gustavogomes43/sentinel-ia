@@ -75,7 +75,7 @@ Ele extrai imagens do vídeo em intervalos estratégicos.
 
 # 🏗️ Arquitetura Geral
 
-![Bucket_S3](docs/fase1/01_s3_bucket_objects.png)
+![Diagrama](docs/fase1/arquitetura.png)
 
 Fluxo completo:
 
