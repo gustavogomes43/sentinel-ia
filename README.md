@@ -119,6 +119,7 @@ Fluxo completo:
 ![Bucket_S3](docs/fase1/01_s3_bucket_objects.png)
 
 🗂️ Mostra os objetos armazenados no bucket S3 após a execução da Lambda.
+
 👉 Aqui validamos que o sistema conseguiu persistir arquivos gerados automaticamente pela IA, comprovando o fluxo completo de geração → armazenamento.
 
 ---
