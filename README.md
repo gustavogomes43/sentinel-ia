@@ -693,3 +693,16 @@ O Sentinel IA não é apenas um projeto finalizado — ele é uma base pronta pa
 > Está em **agir no momento certo, com a informação certa**.
 
 E é exatamente isso que o Sentinel IA entrega.
+
+
+## 🗺️ Roadmap de Desenvolvimento e Gestão
+Para uma visão detalhada de como este projeto foi planejado e executado, acesse o nosso quadro de gestão. Lá você encontrará a documentação de desafios técnicos de cada fase e a visão de futuro do produto.
+
+> [!TIP]
+> **[Clique aqui para acessar o Roadmap do Sentinel IA](https://github.com/users/gustavogomes43/projects/1/views/1)**
+
+### 🛠️ Ciclo de Vida do Projeto:
+- **Fase 1 (Concluída):** Infraestrutura Serverless e Automação de Deploy (CI/CD).
+- **Fase 2 (Concluída):** Inteligência Artificial Generativa com Bedrock e Claude 3.
+- **Fase 3 (Concluída):** Notificações Críticas e Filtragem de Alertas via SNS.
+- **Fase 4 (Backlog):** Análise de vídeo em tempo real com Rekognition Video.
