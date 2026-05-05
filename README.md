@@ -442,80 +442,205 @@ A Fase 2 consolida o Sentinel IA como um sistema capaz de **entender cenários v
 
 ---
 
-# 🚧 FASE 3 — Resposta a Incidentes
+# 🚨 Sentinel IA — Fase 3: Resposta a Incidentes em Tempo Real
 
-## 🎯 Objetivo
+## 🧠 Visão Geral
 
-Transformar análise em ação.
+A Fase 3 marca a conclusão do Sentinel IA como um sistema completo de vigilância inteligente.
 
-## 🔔 Fluxo de alerta
+O projeto evolui de um modelo de análise para um sistema **ativo**, capaz de:
 
-* IA detecta evento
-* Sistema identifica local
-* Alerta enviado para:
+- Detectar ameaças
+- Analisar contexto com IA
+- **Notificar imediatamente os responsáveis**
 
-  * Operador
-  * Equipe mais próxima
-  * Autoridades
+👉 O foco não é substituir humanos, mas **acelerar decisões críticas**.
 
 ---
 
-# 📊 Benefícios para Empresas
+## 🏗️ Arquitetura
 
-* ↓ Sobrecarga operacional
-* ↑ Eficiência
-* ↑ Segurança
-* ↓ Tempo de resposta
+![Arquitetura Fase 3](arquitetura_fase3.png)
 
 ---
 
-# ⚠️ Desafios Enfrentados
+## ⚙️ Como Funciona
 
-* Processamento de imagem
-* Integração com IA
-* IAM
-* Arquitetura escalável
-
----
-
-# 🔮 Melhorias Futuras
-
-* Dashboard em tempo real
-* Banco de eventos
-* Integração com câmeras ao vivo
-* Edge computing
+1. 📸 Frames são capturados a partir de vídeo (câmeras)
+2. 📥 Enviados para o Amazon S3
+3. ⚡ Evento dispara AWS Lambda
+4. 🧠 IA (Bedrock) analisa a imagem
+5. 📊 Classificação:
+   - NORMAL
+   - ALERTA
+6. 🚨 Se ALERTA:
+   - Publicação no Amazon SNS
+   - Notificação enviada em tempo real
 
 ---
 
-# 🧾 Conclusão Final
+## 🚀 O que isso resolve na operação (Visão para Negócio)
 
-O Sentinel IA não substitui pessoas.
-
-👉 Ele **potencializa decisões humanas com velocidade e precisão.**
-
-Transforma vigilância em inteligência.
+### ⏱️ MTTD (Mean Time to Detect)
+Redução do tempo de detecção de minutos para **milissegundos após processamento**.
 
 ---
 
-# 👨‍💻 Autor
+### 🔇 Filtragem de Ruído
+A IA evita falsos positivos:
+- Ignora sombras
+- Ignora animais
+- Foca apenas em risco real
 
-**Gustavo Gomes**
-
----
-
-# 🚀 Mensagem Final
-
-Foi construido um sistema que:
-
-👉 Observa
-👉 Analisa
-👉 Alerta
-
-E principalmente…
-
-👉 **Ajuda pessoas a agir no momento certo**
+👉 Menos ruído = mais eficiência operacional
 
 ---
 
-**Status:** 🟢 Fase 2 concluída | 🚧 Fase 3 em andamento
-**Ambiente:** AWS Cloud + IA Generativa
+### 📡 Escalabilidade de Notificação
+O sistema pode:
+- Alertar 1 pessoa
+- Alertar 1 equipe inteira
+- Escalar para autoridades
+
+👉 Sem aumento de infraestrutura
+
+---
+
+## 🔧 Implementação
+
+### 1. Amazon SNS
+- Criação do tópico: `Sentinel-Alerts`
+- Configuração de subscrição (e-mail)
+
+---
+
+### 2. IAM
+Permissões ajustadas para Lambda:
+
+- S3 (leitura)
+- Bedrock (inferência)
+- SNS (publicação)
+
+---
+
+### 3. IA (Bedrock)
+- Modelo: Claude 4.5 Haiku
+- Uso de Inference Profiles (cross-region)
+
+---
+
+## 📊 Resultados Técnicos
+
+- ⏱️ Tempo médio: ~3.8s
+- 🧠 Análise multimodal avançada
+- 🚨 Alertas em tempo real
+- 📈 Alta escalabilidade
+
+---
+
+## ⚠️ Desafios Superados
+
+- NoSuchKey (eventos S3)
+- ValidationException (Bedrock)
+- Parsing de JSON (StreamingBody)
+
+---
+
+## 🧾 Conclusão Final
+
+O Sentinel IA agora é um sistema completo:
+
+👉 Detecção  
+👉 Análise  
+👉 Ação  
+
+---
+
+## 🧠 Resultados de Negócio
+
+- ↓ Tempo de resposta
+- ↓ Custos operacionais
+- ↑ Eficiência da equipe
+- ↑ Segurança
+
+---
+
+## 🔮 Próximos Passos
+
+- Integração com Slack / Teams / PagerDuty
+- Automação via IoT (sirenes, portas)
+- Dashboard em tempo real (SOC)
+
+---
+
+## 👨‍💻 Nota do Engenheiro
+
+O Sentinel IA deixou de ser um projeto técnico e se tornou uma solução real de negócio.
+
+Hoje ele:
+
+👉 Enxerga  
+👉 Entende  
+👉 Age  
+
+---
+
+## 📌 Status
+
+🟢 Operacional  
+🚀 Pronto para demonstração
+
+---
+
+## 🧾 Conclusão Estratégica — Por que o Sentinel IA importa
+
+O **Sentinel IA** demonstra, de forma prática, como a combinação de **arquitetura serverless + IA generativa** pode transformar operações tradicionais em sistemas inteligentes, escaláveis e orientados à ação.
+
+Mais do que um projeto técnico, trata-se de uma **solução de eficiência operacional**.
+
+---
+
+### 💼 Valor direto para empresas
+
+Em um cenário onde tempo e custo são críticos, o Sentinel IA entrega:
+
+- ⏱️ **Redução do tempo de resposta**  
+  Incidentes deixam de ser percebidos tardiamente e passam a ser tratados em tempo real.
+
+- 💰 **Otimização de custos operacionais**  
+  Menos necessidade de monitoramento constante e manual.
+
+- 📈 **Escalabilidade sem aumento proporcional de custo**  
+  A mesma estrutura atende pequenas operações ou ambientes corporativos complexos.
+
+- 🎯 **Tomada de decisão mais assertiva**  
+  A IA elimina ruído e destaca apenas o que realmente importa.
+
+---
+
+### 🧠 Diferencial competitivo
+
+Empresas que adotam esse tipo de solução saem de um modelo:
+
+- Reativo → **Proativo**  
+- Manual → **Automatizado**  
+- Operacional → **Estratégico**
+
+---
+
+### 🚀 Visão de futuro
+
+O Sentinel IA não é apenas um projeto finalizado — ele é uma base pronta para evolução:
+
+- Integração com múltiplos canais (Slack, Teams, APIs)
+- Automação física (IoT)
+- Centros de comando inteligentes (SOC)
+
+---
+
+### 🎯 Mensagem final
+
+> O verdadeiro valor não está em detectar eventos…  
+> Está em **agir no momento certo, com a informação certa**.
+
+E é exatamente isso que o Sentinel IA entrega.
