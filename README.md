@@ -458,9 +458,60 @@ O projeto evolui de um modelo de análise para um sistema **ativo**, capaz de:
 
 ---
 
-## 🏗️ Arquitetura
+## 🏗️ Arquitetura da Fase 3
 
-![Arquitetura Fase 3](arquitetura_fase3.png)
+![Diagrama](docs/fase3/arquitetura_fase3.png)
+
+**Comentário:**
+Este diagrama representa o fluxo completo da análise até a resposta. A principal evolução em relação à Fase 2 é a adição da **camada de notificação (SNS)**, que transforma o sistema em um agente ativo de segurança.
+
+---
+
+## ⚙️ Execução da Lambda e Integração com Serviços
+
+![Lambda Overview](docs/fase3/alerta_sns.png)
+
+Aqui vemos a função Lambda como ponto central da arquitetura.  
+Ela orquestra:
+
+- Leitura do S3
+- Comunicação com IA (Bedrock)
+- Registro no CloudWatch
+- (Fase 3) Publicação no SNS
+
+👉 Isso demonstra um padrão clássico de **orquestração serverless desacoplada**.
+
+---
+
+## 🧠 Código da Inteligência (Processamento + IA)
+
+![Lambda Code](docs/fase3/invoke_claude_haiku.png)
+
+**Comentário:**
+Este trecho evidencia o coração do sistema:
+
+- Conversão da imagem para Base64
+- Construção do prompt especializado
+- Chamada ao modelo Claude via Bedrock
+
+👉 Destaque importante:
+A IA não retorna texto genérico — ela foi treinada via prompt para retornar **decisões objetivas (ALERTA/NORMAL)**, reduzindo ambiguidade operacional.
+
+---
+
+## 📊 Logs e Resultado da Análise
+
+![CloudWatch Logs](docs/fase3/cloudwatch_logs.png)
+
+Aqui está a prova real de funcionamento:
+
+- A imagem é processada
+- A IA analisa o contexto
+- O sistema retorna: **RESULTADO FINAL: ALERTA**
+
+👉 Valor crítico:
+Isso comprova que o sistema não apenas executa, mas **toma decisão automatizada baseada em contexto**.
+
 
 ---
 
