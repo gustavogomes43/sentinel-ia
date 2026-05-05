@@ -706,7 +706,7 @@ Para uma visão detalhada de como este projeto foi planejado e executado, acesse
 
 
 - **Fase 1 (Concluída):** Infraestrutura Serverless e Automação de Deploy (CI/CD).
-- **Fase 2 (Concluída):** Inteligência Artificial Generativa com Bedrock e Claude 3.
+- **Fase 2 (Concluída):** Inteligência Artificial Generativa com Bedrock e Claude 4.5
 - **Fase 3 (Concluída):** Notificações Críticas e Filtragem de Alertas via SNS.
 - **Fase 4 (Backlog):** Análise de vídeo em tempo real com Rekognition Video.
 
