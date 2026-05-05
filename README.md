@@ -703,7 +703,7 @@ Para uma visão detalhada de como este projeto foi planejado e executado, acesse
 
 ### 🛠️ Ciclo de Vida do Projeto:
 
-![Roadmap_image](docs/fase1/roadmap.png)
+![Roadmap_image](docs/roadmap_image/roadmap.png)
 
 
 - **Fase 1 (Concluída):** Infraestrutura Serverless e Automação de Deploy (CI/CD).
