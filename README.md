@@ -12,15 +12,25 @@ Enquanto operadores se perdem monitorando dezenas de câmeras, o Sentinel IA atu
 
 ---
 
-# 🎯 Problema de Negócio
+# 🎯 Problema de Negócio & ROI
+O monitoramento tradicional sofre com o "Custo do Olhar": manter humanos observando telas 24/7 é caro e ineficiente devido à fadiga.
+*   **Eficiência:** Redução de até 90% no tráfego de alertas irrelevantes.
+*   **Escala:** Capacidade de monitorar centenas de pontos simultaneamente sem aumentar a equipe.
+*   **Resposta:** Diminuição do tempo de reação de minutos para segundos.
 
-Empresas enfrentam desafios reais em monitoramento:
+---
 
-* 👁️ Sobrecarga de operadores
-* ⚠️ Incidentes ignorados ou percebidos tarde
-* 🕒 Tempo de resposta elevado
-* 💰 Alto custo operacional
-* 📉 Baixa eficiência na triagem
+# 🧠 Tabela de Tecnologias & Visão Financeira
+Esta tabela detalha não apenas o "quê", mas o "porquê" econômico de cada escolha técnica.
+
+| Tecnologia | Função Técnica | Tipo de Serviço | Modelo / Versão | Custo Estimado (Pay-per-use) |
+| :--- | :--- | :--- | :--- | :--- |
+| **AWS Lambda** | Orquestrador de Eventos | **Serverless (FaaS)** | Python 3.x | ~$0.20 por milhão de execuções |
+| **Amazon Bedrock** | Inferência Multimodal | **SaaS (AI Service)** | **Claude 3 Haiku** | ~$0.00025 por análise de imagem |
+| **Amazon S3** | Data Lake / Ingestão | **Object Storage** | Standard + Versioning | ~$0.023 por GB / Mês |
+| **Amazon SNS** | Notificação em Tempo Real | **Serverless (Pub/Sub)** | E-mail/SMS/Push | Grátis até 1k e-mails/mês |
+| **CloudWatch** | Observabilidade | **Managed Monitoring** | Estruturado | ~$0.50 por GB de dados ingeridos |
+| **IAM** | Governança e Segurança | **Global Service** | Role-based (RBAC) | **Custo Zero** |
 
 ---
 
@@ -94,7 +104,7 @@ Fluxo completo:
 | AWS Lambda       | Processamento serverless |
 | Amazon S3        | Armazenamento            |
 | Amazon Bedrock   | IA generativa            |
-| Claude 3/4 Haiku | Análise multimodal       |
+| Claude 4.5 Haiku | Análise multimodal       |
 | CloudWatch       | Logs                     |
 | IAM              | Segurança                |
 | Python (Boto3)   | Integração               |
@@ -129,6 +139,8 @@ Em seguida, a Lambda realiza a chamada ao **Amazon Bedrock**, utilizando o model
 O artefato gerado é então armazenado no **Amazon S3**, com versionamento habilitado, garantindo controle de versões, rastreabilidade e governança dos arquivos produzidos.
 
 Toda a comunicação entre os serviços é protegida por políticas do **AWS Identity and Access Management**, aplicando o princípio de menor privilégio para garantir segurança na execução.
+
+* Nota: Esta fase serviu para validar a capacidade da IA em gerar IaC (Infrastructure as Code) para suportar o provisionamento da solução de segurança.
 
 ---
 
@@ -295,7 +307,7 @@ A função **AWS Lambda** entra como o componente central de processamento, real
 * Conversão da imagem para Base64
 * Construção de um prompt especializado em análise de segurança
 
-Em seguida, a Lambda invoca o **Amazon Bedrock**, utilizando o modelo Claude 3 Haiku para executar uma **análise semântica da imagem**, classificando o cenário como **ALERTA ou NORMAL**.
+Em seguida, a Lambda invoca o **Amazon Bedrock**, utilizando o modelo Claude 4.5 Haiku para executar uma **análise semântica da imagem**, classificando o cenário como **ALERTA ou NORMAL**.
 
 O resultado é então registrado no **Amazon CloudWatch**, garantindo rastreabilidade, auditoria e observabilidade do sistema.
 
@@ -382,10 +394,6 @@ A Fase 2 transforma o Sentinel IA em um **assistente inteligente de vigilância*
 
 ## 📌 Conclusão Fase 2
 
-Aqui está a **Conclusão da Fase 2** seguindo exatamente o mesmo nível, estrutura e linguagem — mas adaptada ao contexto de visão computacional e valor de negócio do Sentinel IA:
-
----
-
 📑 **Conclusão Final do Projeto: Sentinel IA (Fase 2)**
 
 O projeto **Sentinel IA** avançou com sucesso para a sua camada de **inteligência analítica**, evoluindo de um sistema automatizado para um **assistente inteligente de segurança baseado em IA generativa**.
@@ -432,7 +440,7 @@ Os próximos passos incluem:
 
 ---
 
-👉 **Resumo Estratégico:**
+👉 **Resumo:**
 A Fase 2 consolida o Sentinel IA como um sistema capaz de **entender cenários visuais e apoiar decisões humanas com velocidade, precisão e escalabilidade**, reduzindo custos operacionais e aumentando a eficiência das equipes de segurança.
 
 ---
@@ -509,7 +517,6 @@ Aqui está a prova real de funcionamento:
 
 👉 Valor crítico:
 Isso comprova que o sistema não apenas executa, mas **toma decisão automatizada baseada em contexto**.
-
 
 ---
 
@@ -641,7 +648,7 @@ Hoje ele:
 
 ---
 
-## 🧾 Conclusão Estratégica — Por que o Sentinel IA importa
+## 🧾 Conclusão — Por que o Sentinel IA importa
 
 O **Sentinel IA** demonstra, de forma prática, como a combinação de **arquitetura serverless + IA generativa** pode transformar operações tradicionais em sistemas inteligentes, escaláveis e orientados à ação.
 
@@ -687,14 +694,6 @@ O Sentinel IA não é apenas um projeto finalizado — ele é uma base pronta pa
 
 ---
 
-### 🎯 Mensagem final
-
-> O verdadeiro valor não está em detectar eventos…  
-> Está em **agir no momento certo, com a informação certa**.
-
-E é exatamente isso que o Sentinel IA entrega.
-
-
 ## 🗺️ Roadmap de Desenvolvimento e Gestão
 Para uma visão detalhada de como este projeto foi planejado e executado, acesse o nosso quadro de gestão. Lá você encontrará a documentação de desafios técnicos de cada fase e a visão de futuro do produto.
 
@@ -710,3 +709,13 @@ Para uma visão detalhada de como este projeto foi planejado e executado, acesse
 - **Fase 2 (Concluída):** Inteligência Artificial Generativa com Bedrock e Claude 3.
 - **Fase 3 (Concluída):** Notificações Críticas e Filtragem de Alertas via SNS.
 - **Fase 4 (Backlog):** Análise de vídeo em tempo real com Rekognition Video.
+
+---
+
+### 🎯 Mensagem final
+
+> O verdadeiro valor não está em detectar eventos…  
+> Está em **agir no momento certo, com a informação certa**.
+
+E é exatamente isso que o Sentinel IA entrega.
+
