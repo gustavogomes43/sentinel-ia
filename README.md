@@ -702,6 +702,10 @@ Para uma visão detalhada de como este projeto foi planejado e executado, acesse
 > **[Clique aqui para acessar o Roadmap do Sentinel IA](https://github.com/users/gustavogomes43/projects/1/views/1)**
 
 ### 🛠️ Ciclo de Vida do Projeto:
+
+![Roadmap_image](docs/fase1/roadmap.png)
+
+
 - **Fase 1 (Concluída):** Infraestrutura Serverless e Automação de Deploy (CI/CD).
 - **Fase 2 (Concluída):** Inteligência Artificial Generativa com Bedrock e Claude 3.
 - **Fase 3 (Concluída):** Notificações Críticas e Filtragem de Alertas via SNS.
