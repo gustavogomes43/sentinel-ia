@@ -462,7 +462,6 @@ O projeto evolui de um modelo de análise para um sistema **ativo**, capaz de:
 
 ![Diagrama](docs/fase3/arquitetura_fase3.png)
 
-**Comentário:**
 Este diagrama representa o fluxo completo da análise até a resposta. A principal evolução em relação à Fase 2 é a adição da **camada de notificação (SNS)**, que transforma o sistema em um agente ativo de segurança.
 
 ---
@@ -487,7 +486,6 @@ Ela orquestra:
 
 ![Lambda Code](docs/fase3/invoke_claude_haiku.png)
 
-**Comentário:**
 Este trecho evidencia o coração do sistema:
 
 - Conversão da imagem para Base64
