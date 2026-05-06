@@ -109,8 +109,6 @@ Fluxo completo:
 | IAM              | Segurança                |
 | Python (Boto3)   | Integração               |
 
-Nota: O Sentinel IA utiliza o Claude 4.5, aproveitando as capacidades mais recentes de raciocínio multimodal e precisão analítica para minimizar falsos positivos em ambientes críticos.
-
 ---
 
 # 💰 Custos e Viabilidade
