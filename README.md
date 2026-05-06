@@ -295,9 +295,6 @@ Aqui está o comentário técnico + visão de negócio adaptado para a **Fase 2 
 
 **💡 Explicação do Fluxo (Fase 2 — Sentinel IA | Visão Computacional com IA Generativa)**
 
-🏗️ Diagrama completo da arquitetura da Fase 2.
-
-👉 Apresenta o fluxo end-to-end do sistema, desde o upload da imagem até a análise via IA e registro dos logs.
 
 Este diagrama representa a evolução do Sentinel IA para um sistema capaz de **interpretar imagens e apoiar decisões de segurança em tempo real**, mantendo o humano no centro da operação.
 
@@ -480,15 +477,19 @@ Este diagrama representa o fluxo completo da análise até a resposta. A princip
 
 ![Lambda Overview](docs/fase3/alerta_sns.png)
 
-Aqui vemos a função Lambda como ponto central da arquitetura.  
-Ela orquestra:
+🚨 Evidência de Entrega: Alerta em Tempo Real
+Esta imagem apresenta o produto final da Fase 3: uma notificação de incidente disparada automaticamente pelo Amazon SNS.
 
-- Leitura do S3
-- Comunicação com IA (Bedrock)
-- Registro no CloudWatch
-- (Fase 3) Publicação no SNS
+O que esta evidência comprova:
 
-👉 Isso demonstra um padrão clássico de **orquestração serverless desacoplada**.
+Capacidade Analítica (Claude 4.5): Note que o e-mail não é um alerta genérico. A IA descreve com precisão o cenário (acesso não autorizado, falta de uniformes, comportamento suspeito). Isso demonstra o poder do raciocínio multimodal do modelo.
+
+Baixa Latência: O timestamp indica que o alerta chegou logo após o evento, validando a eficiência da arquitetura event-driven.
+
+Ação Estratégica: O sistema fornece ao operador um "Relatório Técnico" imediato, permitindo que a equipe de segurança tome decisões baseadas em fatos detalhados, e não apenas em uma detecção de movimento simples.
+
+💡 Insight Técnico:
+O conteúdo deste e-mail é gerado dinamicamente pela Lambda a partir do output estruturado do Claude 4.5. O corpo da mensagem é formatado para ser legível e direto, garantindo que o tempo entre a leitura e a ação humana seja o menor possível.
 
 ---
 
@@ -604,9 +605,7 @@ Permissões ajustadas para Lambda:
 
 ---
 
-## 🧾 Conclusão Final
-
-O Sentinel IA agora é um sistema completo:
+## O Sentinel IA agora é um sistema completo:
 
 👉 Detecção  
 👉 Análise  
